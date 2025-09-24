@@ -1,14 +1,12 @@
-public class Car
-//extends Vehicle implements Maintainable
-{
+public class Car extends Vehicle {
     String type;
-//    public  Car (int velocity, int weight, String fuel, String type){
+    public  Car (int velocity, int weight, String fuel, String type){
 //        super(velocity, weight, fuel);
-//        this.type=type
-//    }
+        this.type=type;
+    }
 
-//    public void doMaintenance(){
-//
-//    }
+    @Override
+    public void move() {
 
+    }
 }
