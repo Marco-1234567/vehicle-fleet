@@ -1,9 +1,10 @@
 package vehicles;
+import baseclasses.Vehicle;
+
 public class Car extends Vehicle {
-    String type;
-    public  Car (int speed, int weight, String fuelType, String type){
-//        super(speed, weight, fuel);
-        this.type=type;
+
+    public  Car (int velocity, int weight, String fuel){
+        super( velocity, weight, fuel);
     }
 
     @Override
