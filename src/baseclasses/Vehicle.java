@@ -15,4 +15,16 @@ public abstract class Vehicle {
         this.weight = weight;
         this.fuel = fuel;
     }
+
+    public int getVelocity() {
+        return velocity;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
 }
