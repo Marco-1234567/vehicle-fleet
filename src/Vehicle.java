@@ -1,4 +1,4 @@
-public abstract class Vehicle {
+public abstract class ehicle {
 
     private int speed;
 
