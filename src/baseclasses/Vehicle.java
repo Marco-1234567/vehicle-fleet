@@ -8,7 +8,7 @@ public abstract class Vehicle {
 
     private String fuel;
 
-    public abstract void move(Vehicle vehicle);
+    public abstract void move();
 
     public Vehicle(int velocity, int weight, String fuel) {
         this.velocity = velocity;
