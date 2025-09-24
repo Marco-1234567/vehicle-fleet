@@ -1,7 +1,15 @@
 package vehicles;
+
+import baseclasses.Vehicle;
+
 public class Bus extends Vehicle {
 
-    public Bus(int velocity,int weight, String fuel){
+    public Bus(int velocity, int weight, String fuel){
         super(velocity, weight, fuel);
+    }
+
+    @Override
+    public void move() {
+
     }
 }

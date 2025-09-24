@@ -1,0 +1,18 @@
+package baseclasses;
+
+public abstract class Vehicle {
+
+    private int velocity;
+
+    private int weight;
+
+    private String fuel;
+
+    public abstract void move();
+
+    public Vehicle(int velocity, int weight, String fuel) {
+        this.velocity = velocity;
+        this.weight = weight;
+        this.fuel = fuel;
+    }
+}
