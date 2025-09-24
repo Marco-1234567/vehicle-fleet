@@ -7,4 +7,8 @@ public class Car
 //        this.type=type
 //    }
 
+//    public void doMaintenance(){
+//
+//    }
+
 }
