@@ -4,7 +4,7 @@ public abstract class Vehicle {
 
     private int weight;
 
-    private String fuelType;
+    private String fuel;
 
     public abstract void move();
 
