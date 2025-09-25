@@ -1,9 +1,9 @@
 package vehicles;
 import baseclasses.Vehicle;
 
-public class Truck extends Vehicle{
+public class Truck extends Vehicle implements Maintainable{
 
-    private int loadCapacity;
+    private final int loadCapacity;
     private int currentLoad;
 
     public Truck(int velocity, int weight, String fuel, int loadCapacity, int currentLoad){
@@ -37,5 +37,15 @@ public class Truck extends Vehicle{
         else {
             System.out.println("truck is empty and moving fast");
         }
+    }
+
+    @Override
+    public void performService() {
+        if (getMilageSinceLastService() > 1000){
+            System.out.println("Truck needs service.");
+        } else {
+            System.out.println("Truck doesn't need service.");
+        }
+
     }
 }

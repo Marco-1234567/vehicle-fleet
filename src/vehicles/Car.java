@@ -1,7 +1,7 @@
 package vehicles;
 import baseclasses.Vehicle;
 
-public class Car extends Vehicle {
+public class Car extends Vehicle implements Maintainable {
     private String brand;
     private String model;
 
@@ -13,6 +13,7 @@ public class Car extends Vehicle {
 
     @Override
     public void move() {
+        System.out.println("Car is moving.");
     }
 
     public String getBrand() {
@@ -21,5 +22,16 @@ public class Car extends Vehicle {
 
     public String getModel() {
         return model;
+    }
+
+    @Override
+    public void performService() {
+
+        if (getMilageSinceLastService() > 1500){
+            System.out.println("Car needs service.");
+        } else {
+            System.out.println("Car doesn't need service.");
+        }
+
     }
 }
