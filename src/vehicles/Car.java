@@ -5,8 +5,8 @@ public class Car extends Vehicle implements Maintainable {
     private String brand;
     private String model;
 
-    public  Car (int velocity, int weight, String fuel, String brand, String model){
-        super( velocity, weight, fuel);
+    public  Car (int velocity, int weight, String fuel, String brand, String model, String name, double milageSinceLastService){
+        super( velocity, weight, fuel, name, milageSinceLastService);
         this.brand = brand;
         this.model = model;
     }
