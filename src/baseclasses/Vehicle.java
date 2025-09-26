@@ -1,6 +1,6 @@
 package baseclasses;
 
-public abstract class Vehicle {
+public class Vehicle {
 
     private int velocity;
     private int weight;
@@ -18,7 +18,9 @@ public abstract class Vehicle {
         this.milageSinceLastService = milageSinceLastService;
     }
 
-    public abstract void move();
+    public void move(){
+        System.out.println("Vehicle is moving...");
+    }
 
     public String getName() {
         return name;
@@ -51,9 +53,18 @@ public abstract class Vehicle {
         return fuel;
     }
 
-    public Vehicle(){}
+    protected Vehicle(Builder builder){
+        this.velocity = builder.velocity;
+        this.weight = builder.weight;
+        this.fuel = builder.fuel;
+        this.milage = builder.milage;
+        this.milageSinceLastService = builder.milageSinceLastService;
+        this.name = builder.name;
+    }
 
-    public static class Builder{
+    private  Vehicle(){}
+
+    public static class Builder<T extends Builder<T>>{
 
         private int velocity;
         private int weight;
@@ -62,34 +73,34 @@ public abstract class Vehicle {
         private double milageSinceLastService;
         private  String name;
 
-        public Builder velocity( int velocity){
+        public T velocity( int velocity){
             this.velocity = velocity;
-            return this;
+            return (T) this;
         }
 
-        public Builder weight( int weight){
+        public T weight( int weight){
             this.weight = weight;
-            return this;
+            return (T)this;
         }
 
-        public Builder fuel( String fuel){
+        public T fuel( String fuel){
             this.fuel = fuel;
-            return this;
+            return (T)this;
         }
 
-        public Builder milage( double milage){
+        public T milage( double milage){
             this.milage = milage;
-            return this;
+            return (T)this;
         }
 
-        public Builder milageSinceLastService( double milageSinceLastService){
+        public T milageSinceLastService( double milageSinceLastService){
             this.milageSinceLastService = milageSinceLastService;
-            return this;
+            return (T)this;
         }
 
-        public Builder name( String name){
+        public T name( String name){
             this.name = name;
-            return this;
+            return (T)this;
         }
 
         public Vehicle build(){
