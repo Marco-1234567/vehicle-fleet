@@ -1,11 +1,7 @@
-import vehicles.Bus;
-import vehicles.Car;
-import vehicles.Truck;
-
 public class Main {
-    static void main() {
+    public static void main(String[] args) {
 
-        FleetManager fleet = new FleetManager();
+        FleetManager fleet = FleetManager.getInstance();
         fleet.run();
     }
 }

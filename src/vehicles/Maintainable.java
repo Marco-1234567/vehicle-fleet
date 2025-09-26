@@ -1,6 +1,6 @@
 package vehicles;
 
-interface Maintainable {
+public interface Maintainable {
 
     void performService();
 }

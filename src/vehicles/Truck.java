@@ -6,8 +6,8 @@ public class Truck extends Vehicle implements Maintainable{
     private final int loadCapacity;
     private int currentLoad;
 
-    public Truck(int velocity, int weight, String fuel, int loadCapacity, int currentLoad){
-        super(velocity, weight, fuel);
+    public Truck(int velocity, int weight, String fuel, int loadCapacity, int currentLoad, String name, double milageSinceLastService){
+        super(velocity, weight, fuel, name, milageSinceLastService);
         this.loadCapacity = loadCapacity;
         this.currentLoad = currentLoad;
     }
