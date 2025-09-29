@@ -6,12 +6,10 @@ public class Bus extends Vehicle implements Maintainable {
 
     private final int seats;
 
-    //  int velocity, int weight, String fuel, int seats, String name, double milageSinceLastService
-    private Bus(Builder builder) {
+    protected Bus(Builder builder) {
         super(builder);
         this.seats = builder.seats;
     }
-
 
     public int getSeats() {
         return seats;
@@ -33,13 +31,13 @@ public class Bus extends Vehicle implements Maintainable {
         System.out.println("Bus serviced");
     }
 
-    public static class Builder extends Vehicle.Builder<Builder>{
+    public static class Builder<T extends Vehicle.Builder<T>> extends Vehicle.Builder<T>{
+
         private int seats;
 
-        public Builder seats(int seats){
+        public T seats(int seats){
             this.seats = seats;
-            return this;
-
+            return (T)this;
         }
 
         @Override
