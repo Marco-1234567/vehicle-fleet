@@ -5,10 +5,10 @@ public class Car extends Vehicle implements Maintainable {
     private String brand;
     private String model;
 
-    public  Car (int velocity, int weight, String fuel, String brand, String model, String name, double milageSinceLastService){
-        super( velocity, weight, fuel, name, milageSinceLastService);
-        this.brand = brand;
-        this.model = model;
+    public  Car (Car.Builder builder) {
+        super(builder);
+        this.brand = builder.brand;
+        this.model = builder.model;
     }
 
     @Override
@@ -33,5 +33,26 @@ public class Car extends Vehicle implements Maintainable {
             System.out.println("Car doesn't need service.");
         }
 
+    }
+
+    public static class Builder extends Vehicle.Builder<Builder>{
+
+        private String brand;
+        private String model;
+
+        public Builder brand(String brand){
+            this.brand = brand;
+            return this;
+        }
+
+        public Builder model(String model){
+            this.model = model;
+            return this;
+        }
+
+        @Override
+        public Vehicle build() {
+            return new Car(this);
+        }
     }
 }

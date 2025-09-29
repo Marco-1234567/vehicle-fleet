@@ -27,8 +27,9 @@ public class Bus extends Vehicle implements Maintainable {
         System.out.println("Bus serviced");
     }
 
-    public  static class Builder extends Vehicle.Builder<Builder>{
+    public static class Builder extends Vehicle.Builder<Builder>{
         private int seats;
+
         public Builder seats(int seats){
             this.seats = seats;
             return this;

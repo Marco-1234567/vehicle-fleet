@@ -23,10 +23,11 @@ public class FleetManager {
     public void run(){
 
         List<Vehicle> vehicleList = new ArrayList<>( List.of(
-                new Vehicle.Builder().velocity(100).weight(2000).fuel("Diesel").milage(1500).milageSinceLastService(1700).name("bus  1").build(),
-                new Truck(100, 5000, "Diesel", 20000, 0, "truck 1", 1245),
-                new Truck(100, 5000, "Diesel", 20000, 0, "truck 2", 145),
-                new Car(250, 1200, "Petrol", "Fiat", "x23", "Car 1", 2000)));
+                new Bus.Builder().velocity(100).weight(2000).fuel("Diesel").milage(1500).milageSinceLastService(1700).name("bus  1").seats(54).build(),
+                new Truck.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("truck  1").loadCapacity(100).currentLoad(20).build(),
+                new Truck.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("truck  2").loadCapacity(5000).currentLoad(3000).build(),
+                new Car.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("car  1").brand("Fiat").model("x25").build()
+                ));
 
         for ( Vehicle v : vehicleList){
             v.move();

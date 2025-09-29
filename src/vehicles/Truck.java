@@ -6,10 +6,10 @@ public class Truck extends Vehicle implements Maintainable{
     private final int loadCapacity;
     private int currentLoad;
 
-    public Truck(int velocity, int weight, String fuel, int loadCapacity, int currentLoad, String name, double milageSinceLastService){
-        super(velocity, weight, fuel, name, milageSinceLastService);
-        this.loadCapacity = loadCapacity;
-        this.currentLoad = currentLoad;
+    public Truck(Truck.Builder builder) {
+        super(builder);
+        this.loadCapacity = builder.loadCapacity;
+        this.currentLoad = builder.currentLoad;
     }
 
     public int getLoadCapacity() {
@@ -47,5 +47,26 @@ public class Truck extends Vehicle implements Maintainable{
             System.out.println("Truck doesn't need service.");
         }
 
+    }
+
+    public  static class Builder extends Vehicle.Builder<Builder>{
+        private int loadCapacity;
+        private int currentLoad;
+
+        public Builder loadCapacity(int loadCapacity){
+            this.loadCapacity = loadCapacity;
+            return this;
+
+        }
+
+        public Builder currentLoad(int currentLoad){
+            this.currentLoad = currentLoad;
+            return this;
+        }
+
+        @Override
+        public Vehicle build() {
+            return new Truck(this);
+        }
     }
 }
