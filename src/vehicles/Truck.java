@@ -31,21 +31,31 @@ public class Truck extends Vehicle implements Maintainable{
 
     @Override
     public void move() {
-        if(this.currentLoad > 0){
+        super.move(10);
+
+    }
+    public void move(double km){
+        super.move(km);
+        if (this.currentLoad > 0){
             System.out.println("Truck is moving slow as it is loaded");
+        } else {
+            System.out.println("Truck is empty and moving fast");
         }
-        else {
-            System.out.println("truck is empty and moving fast");
-        }
+    }
+
+
+    @Override
+    public double getServiceIntervalKm() {
+        return 1500;
     }
 
     @Override
     public void performService() {
-        if (getMilageSinceLastService() > 1000){
-            System.out.println("Truck needs service.");
-        } else {
-            System.out.println("Truck doesn't need service.");
-        }
+
+            setMilageSinceLastService(0); //återställer service-mätare
+        System.out.println(getName() + ": Truck serviced.");
+
+
 
     }
 

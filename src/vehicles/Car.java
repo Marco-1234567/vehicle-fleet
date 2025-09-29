@@ -13,7 +13,12 @@ public class Car extends Vehicle implements Maintainable {
 
     @Override
     public void move() {
+        super.move(10);
         System.out.println("Car is moving.");
+    }
+    @Override
+    public double getServiceIntervalKm() {
+        return 1500;
     }
 
     public String getBrand() {
@@ -26,12 +31,8 @@ public class Car extends Vehicle implements Maintainable {
 
     @Override
     public void performService() {
-
-        if (getMilageSinceLastService() > 1500){
-            System.out.println("Car needs service.");
-        } else {
-            System.out.println("Car doesn't need service.");
-        }
+        setMilageSinceLastService(0); //återställer service-mätare
+        System.out.println(getName() + ": Car serviced");
 
     }
 
