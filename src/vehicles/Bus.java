@@ -19,11 +19,17 @@ public class Bus extends Vehicle implements Maintainable {
 
     @Override
     public void move() {
+        super.move(10);
         System.out.println("Bus drives at " + getVelocity() + " km/h with " + seats + " seats.");
+    }
+    @Override
+    public double getServiceIntervalKm() {
+        return 1500;
     }
 
     @Override
     public void performService() {
+        setMilageSinceLastService(0); //återställer servic-meter
         System.out.println("Bus serviced");
     }
 

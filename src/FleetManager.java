@@ -29,25 +29,35 @@ public class FleetManager {
                 new Car.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("car  1").brand("Fiat").model("x25").build()
                 ));
 
+        //alla fordon kör 50 i for-loopen
+        double tripleKm = 50;
+        System.out.println("\n=========Service check=========\n");
         for ( Vehicle v : vehicleList){
-            v.move();
-/*
-            if (v instanceof Maintainable m){
-                System.out.println("it works! " + v.getName());
-                m.performService();
+            v.move(tripleKm);
+
+            if (v instanceof Maintainable m){ //en enskild check på maintainiable
+                double since = v.getMilageSinceLastService();
+                if(m.isServiceDue(since)){
+                    System.out.println("⚠️  " + v.getName() + ": SERVICE DUE (" + since + " km). Performing now...");
+                    m.performService();
+                } else if (m.isServiceSoon(since)) {
+                    System.out.println("ℹ️  " + v.getName() + ": Service soon (" + since + " km). Interval=" + m.getServiceIntervalKm());
+                }
             }
-*/
+        }
+        System.out.println("\n=========Vehicle details=========\n");
+        for ( Vehicle v : vehicleList){
             if ( v instanceof Bus b){
-                b.performService();
-                System.out.println("Number of seats: " + b.getSeats());
+
+                System.out.println(v.getName() + " has " + b.getSeats() + " seats.");
 
             } else if ( v instanceof Truck t){
-                t.performService();
-                System.out.println("Current load is: " + t.getCurrentLoad());
+
+                System.out.println(v.getName() + "'s current load is " + t.getCurrentLoad());
 
             } else if ( v instanceof Car c){
-                c.performService();
-                System.out.printf("The brand is %s, model %s%n", c.getBrand(), c.getModel());
+
+                System.out.printf(v.getName() + "has the brand %s and model %s.%n", c.getBrand(), c.getModel());
             }
         }
     }

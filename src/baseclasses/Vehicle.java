@@ -19,7 +19,17 @@ public class Vehicle {
     }
 
     public void move(){
+        move(10);
         System.out.println("Vehicle is moving...");
+    }
+    public void move(double km) {
+        if (km <= 0) {
+            System.out.println(getName()  + " did not move.");
+            return;
+        }
+        this.milage += km;
+        this.milageSinceLastService += km;
+        System.out.printf("%s moved %.1f km. Total mileage=%.1f, Since service=%.1f%n", getName(),km, getMilage(), getMilageSinceLastService());
     }
 
     public String getName() {
@@ -64,14 +74,14 @@ public class Vehicle {
 
     private  Vehicle(){}
 
-    public static class Builder<T extends Builder<T>>{
+    public static class Builder<T extends Builder<T>>{ //Lade till defaultvärden som skrivs över när vi lägger till i listan
 
-        private int velocity;
-        private int weight;
-        private String fuel;
-        private double milage;
-        private double milageSinceLastService;
-        private  String name;
+        private int velocity = 50;
+        private int weight = 1000;
+        private String fuel = "Unknown fuel";
+        private double milage = 0.0;
+        private double milageSinceLastService = 0.0;
+        private  String name= "Unnamed";
 
         public T velocity( int velocity){
             this.velocity = velocity;
