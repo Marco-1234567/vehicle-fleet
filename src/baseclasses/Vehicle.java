@@ -1,5 +1,6 @@
 package baseclasses;
 
+import Exceptions.FuelException;
 import Exceptions.NegativeSpeedException;
 import Exceptions.SpeedLimitExceededException;
 
@@ -76,6 +77,15 @@ public class Vehicle {
             this.velocity = velocity;
             System.out.printf("Velocity is now %d km/h.%n", this.velocity);
         }
+    }
+
+    public void validateFuel(String fuel) throws FuelException {
+        if (fuel == null || fuel.isEmpty()) {
+            throw new FuelException("Fuel is empty.");
+        }else if(fuel.contains(" ")) {
+            throw new FuelException("Fuel contains spaces.");
+        }else{ this.fuel = fuel;
+            System.out.println("Fuel is valid: " + this.fuel);}
     }
 
     protected Vehicle(Builder builder){
