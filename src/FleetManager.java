@@ -63,6 +63,9 @@ public class FleetManager {
             } else if ( v instanceof Truck t){
 
                 System.out.println("Current load is: " + t.getCurrentLoad());
+                trySetLoad(t,-1);
+                trySetLoad(t,t.getLoadCapacity()+ 1);
+
 
             } else if ( v instanceof Car c){
 
@@ -83,6 +86,14 @@ public class FleetManager {
             } else {
                 System.out.println("Error. Not an option.");
             }
+        }
+    }
+    private static void trySetLoad(Truck t, int load) {
+        try {
+            t.setCurrentLoad(load);
+            System.out.println("Put the load to " + load + " kg");
+        } catch (Exceptions.NegativeLoadException | Exceptions.MaxCapacityException e) {
+            System.out.println("Error (" + t.getName() + "): " + e.getMessage());
         }
     }
 }
