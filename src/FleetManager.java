@@ -25,7 +25,8 @@ public class FleetManager {
         List<Vehicle> vehicleList = new ArrayList<>( List.of(
                 VehicleFactory.createCar("Car 1", 100, 1500, "Bensin", 1700, "Toyota", "SX32"),
                 VehicleFactory.createBus("Bus 1", 80, 5000, "Diesel", 1200, 54),
-                VehicleFactory.createTruck("Truck 1", 70, 8000, "Diesel", 1600, 5000, 3000)
+                VehicleFactory.createTruck("Truck 1", 70, 8000, "Diesel", 1600, 5000, 3000),
+                VehicleFactory.createElectricBus("ElectricBus 1", 80, 5000, "Diesel", 1700, 43)
 
 //                new Bus.Builder().velocity(100).weight(2000).fuel("Diesel").milage(1500).milageSinceLastService(1700).name("bus  1").seats(54).build(),
 //                new Truck.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("truck  1").loadCapacity(100).currentLoad(20).build(),

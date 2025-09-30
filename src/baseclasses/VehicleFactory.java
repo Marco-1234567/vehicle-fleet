@@ -2,6 +2,7 @@ package baseclasses;
 
 import vehicles.Bus;
 import vehicles.Car;
+import vehicles.ElectricBus;
 import vehicles.Truck;
 
 public class VehicleFactory {
@@ -21,6 +22,17 @@ public class VehicleFactory {
 
     public static Bus createBus(String name, int velocity, int weight, String fuel, double milageSinceLastService, int seats) {
         return (Bus) new Bus.Builder()
+                .seats(seats)
+                .name(name)
+                .velocity(velocity)
+                .weight(weight)
+                .fuel(fuel)
+                .milageSinceLastService(milageSinceLastService)
+                .build();
+    }
+
+    public static ElectricBus createElectricBus(String name, int velocity, int weight, String fuel, double milageSinceLastService, int seats) {
+        return (ElectricBus) new ElectricBus.Builder()
                 .seats(seats)
                 .name(name)
                 .velocity(velocity)
