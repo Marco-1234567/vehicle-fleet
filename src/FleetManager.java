@@ -1,3 +1,5 @@
+import Exceptions.NegativeSpeedException;
+import Exceptions.SpeedLimitExceededException;
 import baseclasses.Vehicle;
 import baseclasses.VehicleFactory;
 import vehicles.*;
@@ -64,6 +66,18 @@ public class FleetManager {
             } else if ( v instanceof Car c){
 
                 System.out.printf("The brand is %s, model %s%n", c.getBrand(), c.getModel());
+
+                try {
+                    c.setVelocity(15);
+                } catch (NegativeSpeedException e) {
+                    System.out.println( "Catching negative speed: -> " + e.getMessage());
+                } catch (SpeedLimitExceededException e) {
+                    System.out.println( "Catching Speed exceeded : -> " + e.getMessage());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    System.out.println( "In finally");
+                }
 
             } else {
                 System.out.println("Error. Not an option.");

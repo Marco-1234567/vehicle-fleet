@@ -1,5 +1,8 @@
 package baseclasses;
 
+import Exceptions.NegativeSpeedException;
+import Exceptions.SpeedLimitExceededException;
+
 public class Vehicle {
 
     private int velocity;
@@ -61,6 +64,18 @@ public class Vehicle {
 
     public String getFuel() {
         return fuel;
+    }
+
+    public void setVelocity(int velocity) throws NegativeSpeedException, SpeedLimitExceededException {
+
+        if (velocity < 0) {
+            throw new NegativeSpeedException("Your speed is negative.");
+        } else if (velocity > 300) {
+            throw new SpeedLimitExceededException("Your speed is to high.");
+        } else {
+            this.velocity = velocity;
+            System.out.printf("Velocity is now %d km/h.%n", this.velocity);
+        }
     }
 
     protected Vehicle(Builder builder){
