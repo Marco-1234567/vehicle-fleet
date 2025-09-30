@@ -33,7 +33,6 @@ public class Car extends Vehicle implements Maintainable {
     public void performService() {
         setMilageSinceLastService(0); //återställer service-mätare
         System.out.println(getName() + ": Car serviced");
-
     }
 
     public static class Builder extends Vehicle.Builder<Builder>{
