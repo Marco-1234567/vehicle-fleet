@@ -1,4 +1,6 @@
 package vehicles;
+import Exceptions.MaxCapacityException;
+import Exceptions.NegativeLoadException;
 import baseclasses.Vehicle;
 
 public class Truck extends Vehicle implements Maintainable{
@@ -19,14 +21,15 @@ public class Truck extends Vehicle implements Maintainable{
     public int getCurrentLoad() {
         return currentLoad;
     }
-    public void setCurrentLoad(int currentLoad){
-        if(currentLoad <= loadCapacity){
-            this.currentLoad = currentLoad;
-            System.out.println("Truck loaded with" + currentLoad + "Kg");
+    public void setCurrentLoad(int currentLoad) throws NegativeLoadException, MaxCapacityException {
+        if(currentLoad < 0){
+            throw new NegativeLoadException(currentLoad);
         }
-        else{
-            System.out.println("Load exceeds capacity!");
+        if(currentLoad > loadCapacity){
+            throw new MaxCapacityException(currentLoad, loadCapacity);
         }
+        this.currentLoad = currentLoad;
+        System.out.println("Truck loaded with" + currentLoad + "Kg");
     }
 
     @Override
