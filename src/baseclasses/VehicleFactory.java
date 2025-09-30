@@ -21,12 +21,12 @@ public class VehicleFactory {
 
     public static Bus createBus(String name, int velocity, int weight, String fuel, double milageSinceLastService, int seats) {
         return (Bus) new Bus.Builder()
+                .seats(seats)
                 .name(name)
                 .velocity(velocity)
                 .weight(weight)
                 .fuel(fuel)
                 .milageSinceLastService(milageSinceLastService)
-                .seats(seats)
                 .build();
     }
 
