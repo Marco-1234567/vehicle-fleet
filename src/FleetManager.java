@@ -1,3 +1,4 @@
+import Exceptions.FuelException;
 import Exceptions.NegativeSpeedException;
 import Exceptions.SpeedLimitExceededException;
 import baseclasses.Vehicle;
@@ -53,6 +54,13 @@ public class FleetManager {
         }
         System.out.println("\n=========Vehicle details=========\n");
         for ( Vehicle v : vehicleList){
+
+            try{
+                v.validateFuel(v.getFuel());
+            } catch (FuelException e) {
+                System.out.printf(" *** Fuel Validation = Vehicle %s: %s\n", v.getName(), e.getMessage());
+            }
+
             if (v instanceof ElectricBus eb) {
 
                 eb.chargeBattery();
