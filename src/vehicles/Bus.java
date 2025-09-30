@@ -37,7 +37,7 @@ public class Bus extends Vehicle implements Maintainable {
 
         public T seats(int seats){
             this.seats = seats;
-            return (T)this;
+            return (T) this;
         }
 
         @Override
