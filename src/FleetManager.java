@@ -3,6 +3,7 @@ import Exceptions.NegativeSpeedException;
 import Exceptions.SpeedLimitExceededException;
 import baseclasses.Vehicle;
 import baseclasses.VehicleFactory;
+import genericutils.Filter;
 import vehicles.*;
 
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class FleetManager {
 
         List<Vehicle> vehicleList = new ArrayList<>( List.of(
                 VehicleFactory.createCar("Car 1", 100, 1500, "Bensin", 1700, "Toyota", "SX32"),
+                VehicleFactory.createCar("Car 2", 200, 1500, "Bensin", 1700, "Toyota", "SX32"),
+                VehicleFactory.createCar("Car 3", 300, 1500, "Bensin", 1700, "Toyota", "SX32"),
                 VehicleFactory.createBus("Bus 1", 80, 5000, "Diesel", 1200, 54),
                 VehicleFactory.createTruck("Truck 1", 70, 8000, "Diesel", 1600, 5000, 3000),
                 VehicleFactory.createElectricBus("ElectricBus 1", 80, 5000, "Diesel", 1700, 43)
@@ -34,6 +37,9 @@ public class FleetManager {
 //                new Truck.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("truck  2").loadCapacity(5000).currentLoad(3000).build(),
 //                new Car.Builder().velocity(80).weight(5000).fuel("Diesel").milage(1500).milageSinceLastService(1245).name("car  1").brand("Fiat").model("x25").build()
                 ));
+
+        Filter<Vehicle> filtered = new Filter<>(vehicleList);
+        filtered.filterList(  v -> v.getVelocity() > 20 ).foreach( v -> System.out.println(v));
 
         //alla fordon kör 50 i for-loopen
         double tripleKm = 50;
@@ -53,6 +59,7 @@ public class FleetManager {
 
         }
         System.out.println("\n=========Vehicle details=========\n");
+
         for ( Vehicle v : vehicleList){
 
             try{
@@ -95,6 +102,8 @@ public class FleetManager {
                 System.out.println("Error. Not an option.");
             }
         }
+
+
     }
     private static void trySetLoad(Truck t, int load) {
         try {

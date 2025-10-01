@@ -25,6 +25,14 @@ public class Car extends Vehicle implements Maintainable {
         return brand;
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
+
     public String getModel() {
         return model;
     }
