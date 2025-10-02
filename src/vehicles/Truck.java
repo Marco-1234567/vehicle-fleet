@@ -46,6 +46,13 @@ public class Truck extends Vehicle implements Maintainable{
         }
     }
 
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "load capacity='" + loadCapacity + '\'' +
+                ", currentLoad='" + currentLoad + '\'' +
+                '}';
+    }
 
     @Override
     public double getServiceIntervalKm() {

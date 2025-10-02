@@ -108,6 +108,14 @@ public class Vehicle {
         private double milageSinceLastService = 0.0;
         private  String name= "Unnamed";
 
+        @Override
+        public String toString() {
+            return "Vehicle{" +
+                    "velocity='" + velocity + '\'' +
+                    ", weight='" + weight + '\'' +
+                    '}';
+        }
+
         public T velocity( int velocity){
             this.velocity = velocity;
             return (T) this;

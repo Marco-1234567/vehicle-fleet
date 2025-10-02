@@ -31,8 +31,9 @@ public class VehicleFactory {
                 .build();
     }
 
-    public static ElectricBus createElectricBus(String name, int velocity, int weight, String fuel, double milageSinceLastService, int seats) {
+    public static ElectricBus createElectricBus(String name, int velocity, int weight, String fuel, double milageSinceLastService, int seats, int voltage) {
         return (ElectricBus) new ElectricBus.Builder()
+                .voltage(voltage)
                 .seats(seats)
                 .name(name)
                 .velocity(velocity)
