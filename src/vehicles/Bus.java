@@ -26,6 +26,12 @@ public class Bus extends Vehicle implements Maintainable {
     }
 
     @Override
+    public String toString() {
+        return "Bus{" +
+                "seats='" + seats + '}';
+    }
+
+    @Override
     public void performService() {
         setMilageSinceLastService(0); //återställer servic-meter
         System.out.println("Bus serviced");

@@ -29,9 +29,6 @@ public class Filter<T> {
 
         List<T> filteredList = data.stream().filter(condition).toList();
 
-        //return filteredList;
         return new Filter<>(filteredList);
-        //return new ArrayList<>( filteredList);
     }
-
 }
