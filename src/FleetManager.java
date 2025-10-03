@@ -26,7 +26,7 @@ public class FleetManager {
     public void run(){
 
         List<Vehicle> vehicleList = new ArrayList<>( List.of(
-                VehicleFactory.createCar("Car 1", 100, 1500, "Bensin", 1700, "Toyota", "SX32"),
+                VehicleFactory.createCar("Car 1", 100, 1500, "Bensin", 1430, "Toyota", "SX32"),
                 VehicleFactory.createCar("Car 2", 200, 1500, "Bensin", 1700, "Toyota", "SX32"),
                 VehicleFactory.createCar("Car 3", 300, 1500, "Bensin", 1700, "Toyota", "SX32"),
                 VehicleFactory.createBus("Bus 1", 80, 5000, "Diesel", 1200, 54),
