@@ -11,8 +11,8 @@ public interface Maintainable {
         return milageSinceLastService >= getServiceIntervalKm();
     }
 
-    default boolean isServiceSoon(double milageSinceLastService) {
-        return !isServiceDue(milageSinceLastService) && milageSinceLastService >= getServiceIntervalKm();
+    default boolean isServiceSoon(double since) {
+        return !isServiceDue(since) && since >= 0.9 * getServiceIntervalKm();
     }
 
 
